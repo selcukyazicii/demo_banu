@@ -1,0 +1,29 @@
+﻿@using demo_banu.DAL 
+@model List<Category> 
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DemoLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<h1>Index</h1>
+
+<h1>Kategori Listesi</h1>
+<table class="table table-bordered" style="margin-left:30px;">
+    <tr>
+        <th>ID</th>
+        <th>Kategori Adı:</th>
+        <th>Sil:</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+<tr>
+    <td>@item.CategoryId</td>
+    <td>@item.CategoryName</td>
+    <td><a href="/Default/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+    <td><a href="#" class="btn btn-success">Düzenle</a></td>
+</tr>
+    }
+</table>
+<a href="/Default/AddCategory" class="btn btn-primary" style="margin-left:30px;">Yeni Kategori Ekle</a>
